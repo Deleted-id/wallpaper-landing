@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Poppins:wght@500&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* font-family: sans-serif; */
+        }
+
+        body {
+            background-image: url('./images/bg-bg.jpg');
+            background-color: rgb(12, 12, 12);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+
+
+        }
+
+        .navbar {
+            overflow: hidden;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.64);
+            width: 100%;
+            top: 0;
+            z-index: 999;
+
+
+        }
+
+        .navbar a {
+            font-size: 16px;
+            float: left;
+            display: block;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            color: aqua;
+            padding: 14px 16px;
+            transition: 0.5s ease;
+        }
+
+        .navbar a:hover {
+            transform: scale(1.2);
+        }
+
+        .navbar .active {
+            color: red;
+        }
+
+        aside {
+            position: fixed;
+            height: auto;
+            width: 300px;
+            top: 25%;
+            left: 5%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: "Calistoga", serif;
+
+        }
+
+        aside span {
+            font-size: 90px;
+            font-weight: 500;
+            gap: 10px;
+            color: yellow;
+        }
+
+        .gallery {
+            height: auto;
+            width: 90%;
+            margin: 30px 20px 20px 20px;
+            max-width: 850px;
+            float: right;
+            padding: 30px;
+            scroll-behavior: smooth;
+        }
+
+
+
+        .card {
+            position: relative;
+            height: 300px;
+            width: calc(33% - 22px);
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 10px;
+            margin-left: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+
+        .card .card-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 100%;
+            backdrop-filter: blur(5px);
+            color: aliceblue;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: 1s;
+        }
+
+        .card:hover .card-content {
+            right: 0;
+        }
+
+        .card .card-content .card-title {
+            text-transform: uppercase;
+            font-size: 30px;
+            font-weight: 400;
+            margin: 10px 0 10px 10px;
+        }
+
+        .card .card-content .anime {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 0 5px 10px;
+        }
+
+        .card .card-content .info {
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 300;
+            margin: 5px 0 0px 10px;
+
+        }
+
+
+        .card .card-content .card-btn {
+            text-transform: capitalize;
+            width: 120px;
+            color: rgb(85, 85, 85);
+            background: rgb(221, 221, 226);
+            padding: 5px 10px;
+            margin: 10px 0 10px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+
+        }
+
+
+
+
+
+        @media (min-width:300px) and (max-width:650px) {
+
+            .navbar a {
+                font-size: 12px;
+                float: left;
+                display: block;
+                text-transform: uppercase;
+                text-decoration: none;
+                text-align: center;
+                color: aqua;
+                padding: 15px 16px;
+            }
+
+            aside {
+                position: relative;
+                width: 300px;
+                height: 350px;
+                top: 30px;
+
+            }
+
+            aside span {
+                top: 10px;
+                gap: 15px;
+                font-size: 75px;
+                font-weight: 300;
+            }
+
+            .gallery {
+                position: relative;
+                width: 320px;
+                height: auto;
+            }
+
+            .card {
+                width: 300px;
+                height: 450px
+            }
+
+            .card img {
+                position: relative;
+                height: 450px;
+                width: 300px;
+            }
+        }
+
+
+        @media (min-width:700px) and (max-width:1100px) {
+            aside {
+                position: relative;
+                top: 35px;
+                left: 60px;
+                width: 700px;
+                height: 180px;
+
+            }
+
+            aside span {
+                top: 10px;
+                gap: 15px;
+                font-size: 80px;
+                font-weight: 400;
+            }
+
+            .gallery {
+                width: 730px;
+                height: auto;
+            }
+
+            .card {
+                width: 220px;
+                height: 300px
+            }
+
+            .card img {
+                position: relative;
+                height: 300px;
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <video autoplay muted loop src="bg-desktop.mp4"></video>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">home</a>
+        <a href="Phone.html">Phone</a>
+        <a class="active" href="#">Desktop</a>
+        <a href="Gallery.html">Anime-Character</a>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <Span>Welcome</Span>
+            <span>To The</span>
+            <span>Anime World</span>
+        </aside>
+
+        <div class="gallery">
+            <div class="card">
+
+                <img src="./images/desk-img/D1.jpg" alt="img">
+
+                <div class="card-content">
+                    <h2 class="card-title">Gojo Satoru</h2>
+                    <p class="anime">Jujutsu Kaisen</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D1.jpg')">Download</button>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D2.webp" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">sung jin woo</h2>
+                    <p class="anime">solo leveling</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D2.webp')">Download</button>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D3.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">sukuna</h2>
+                    <p class="anime">Jujutsu Kaisen</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D3.jpg')">Download</button>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D4.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">maki jenin</h2>
+                    <p class="anime">Jujutsu Kaisen</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D4.jpg')">Download</button>
+
+                </div>
+
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D5.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">monkey D.Luffy</h2>
+                    <p class="anime">one peace</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D5.jpg')">Download</button>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D6.webp" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">makima</h2>
+                    <p class="anime">chainsaw man</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D6.webp')">Download</button>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img src="./images/desk-img/D7.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">zoro</h2>
+                    <p class="anime">one peace</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D7.jpg')">Download</button>
+
+                </div>
+
+
+            </div>
+            <div class="card">
+                <img src="./images/desk-img/D8.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">2-b</h2>
+                    <p class="anime">neir automata</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D8.jpg')">Download</button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img src="./images/desk-img/D9.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">denji</h2>
+                    <p class="anime">chainsaw man</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D9.jpg')">Download</button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img src="./images/desk-img/D10.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">Makima-denji</h2>
+                    <p class="anime">chainsaw man</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D10.jpg')">Download</button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img src="./images/desk-img/D11.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">Cute-girl</h2>
+                    <p class="anime">!!!!!!!!!</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D11.jpg')">Download</button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img src="./images/desk-img/D12.jpg" alt="img">
+                <div class="card-content">
+                    <h2 class="card-title">Cute-girl</h2>
+                    <p class="anime">!!!!!!!!!</p>
+                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quis sunt
+                        voluptas dolorem impedit </p>
+                    <button class="card-btn" onclick="downloadImage('D12.jpg')">Download</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function downloadImage(imageName) {
+            var imageUrl = "./images/desk-img/" + imageName;
+            var a = document.createElement("a");
+            a.href = imageUrl;
+            a.download = imageName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+    </script>
+
+</body>
+
+</html>
